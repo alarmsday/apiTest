@@ -1,11 +1,11 @@
 import requests
 import common.readConfig as readConfig
-from common.Log import MyLog as Log
+from common.loggerHandler import MyLog as Log
 
 localReadConfig = readConfig.ReadConfig()
 
 
-class ConfigHttp:
+class httpTools:
     def __init__(self):
         global host, port, timeout
         host = localReadConfig.get_http("baseurl")
@@ -59,7 +59,7 @@ class ConfigHttp:
 
 
 if __name__ == '__main__':
-    http1 = ConfigHttp()
+    http1 = httpTools()
     http1.set_url("http://java.goodscenter.mng.turboradio.cn/spu/save")
     http1.set_headers({"Content-Type":"application/json","Authorization":"Bearer ed9e5fd5-dd4a-4dba-80d0-3f861523a561"})
     http1.set_json({"goodsType":"1","goodsSubType":"11","cateName":["12815"],"cateId":"12815","goodsName":"刘昊然测试1592314435","enName":None,"approvalNumber":"1592314435","dosage":None,"form":None,"manufacturer":None,"deleted":0,"id":None,"attrs":None})
